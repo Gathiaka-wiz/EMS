@@ -1,6 +1,6 @@
 const TicketSetup = () => {
     return(
-        <div></div>
+        <div>Ticket Section</div>
     )
 }
 

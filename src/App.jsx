@@ -1,10 +1,16 @@
-import {Dashboard,EventCrud,TicketSetup} from './components'
+import Dashboard from './components/Dashboard';
+import EventCrud from './components/EventCrud';
+import TicketSetup from './components/TicketSetup';
 
 
 const App = () => {
 
   return(
-    <div className="container" ></div>
+    <div className="container" >
+      <Dashboard />
+      <EventCrud />
+      <TicketSetup />
+    </div>
   )
 }
 
