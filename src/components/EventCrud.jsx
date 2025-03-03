@@ -4,95 +4,116 @@ import {  useEffect, useState } from "react";
 
 const EventCrud = () => {
     // Event Object content
-
-    const [Name, setName] = useState("Fix Event Bug");
-    const [Date , setDate] = useState("2025-02-21");
-    const [Location , setLocation] = useState("Kenya - Avenue park");
-    const [TimeLine , setTimeLine] = useState("12:00");
-    const [Description , setDescription] = useState("Try cleaning up the code");
+    const [formData, setFormData] = useState(
+        {
+            event_name:"",
+            event_date:"",
+            event_location:"",
+            event_time:"",
+            event_description:"",
+        }
+    );
     const [Events , setEvents] = useState([]);
 
     // Event Obj Setters
 
-    const handleNameChange = (e) => setName(e.target.value);
-    const handleDateChange = (e) =>  setDate(e.target.value);
-    const handleLocationChange = (e) => setLocation(e.target.value);
-    const handleTimeChange = (e) =>setTimeLine(e.target.value);
-    const handleDescriptionChange = (e) =>setDescription(e.target.value);
+    const handleChange = (e) => {
+        const {name,value} = e.target;
+        setFormData((prev) => ({...prev, [name]:value}));
+    }
 
 
 
     
     // Collect Data when submit btn is clicked
     const setNewEvent = () => {
-
-        const NewEvent = {
-            event_name:Name,
-            event_date:Date,
-            event_location:Location,
-            event_time:TimeLine,
-            event_description:Description,
-        }
-
-
-        if(!Name || !Date || !Location || !TimeLine || !Description){
+        
+        if(!formData.event_name || !formData.event_date || !formData.event_time || !formData.event_location || !formData.event_description){
             alert("You cannot add an event with empty values !!!");
         }  else{
-            setEvents(prevEvents => [...prevEvents,NewEvent]);
-            
+            setEvents(prevEvents => [...prevEvents,formData]);
+
         }
-
-
         // Reset values after saving
-        setName("");
-        setDate("");
-        setLocation("");
-        setTimeLine("");
-        setDescription("");
+        setFormData({
+            event_name:"",
+            event_date:"",
+            event_location:"",
+            event_time:"",
+            event_description:"",
+        });
     
     }
-    
+
     
     useEffect(() => {
-        console.log(Events);
+        const renderEvents = () => {
+            if(Events.length > 0){
+                const dis = document.querySelector('.display');
+                const element = document.createElement('ol');
+                Events.map((value,index) => {
+                    element.innerHTML = `
+                    
+                    <li key=${index} >
+                        Event name :${value.event_name} , 
+                        Date : ${value.event_date} , 
+                        Time : ${value.event_time} ,
+                        Venue : ${value.event_location} ,
+                        Description : ${value.event_description}
+                    </li> 
+                    `
+
+                    dis.appendChild(element);
+                })
+            } else{
+                return;
+            }
+        }
+        renderEvents();
+        
     },[Events]);
 
 
     return(
         <div  className="crud">
-            <input 
+            <input
+                name="event_name"
                 type="text"
                 placeholder="Event name"
-                value={Name} 
-                onChange={handleNameChange}
+                value={formData.event_name} 
+                onChange={handleChange}
             />
 
             <input 
+                name="event_date"
                 type="date" 
                 placeholder="date" 
-                value={Date} 
-                onChange={handleDateChange} 
+                value={formData.event_date} 
+                onChange={handleChange} 
             />
 
             <input 
+                name="event_location"
                 type="text" 
                 placeholder="Location"  
-                value={Location} 
-                onChange={handleLocationChange} 
+                value={formData.event_location} 
+                onChange={handleChange} 
             />
 
             <input 
+                name="event_time"
                 type="time" 
                 placeholder="time" 
-                value={TimeLine} 
-                onChange={handleTimeChange} 
+                value={formData.event_time} 
+                onChange={handleChange} 
             />
 
             <textarea 
+                name="event_description"
                 type="text" 
                 placeholder="description" 
-                value={Description}  
-                onChange={handleDescriptionChange}
+                value={formData.event_description}  
+                onChange={handleChange}
             />
 
             {/* <div>
@@ -108,6 +129,10 @@ const EventCrud = () => {
 
             <div>
                 <button type="submit" onClick={setNewEvent}>Save Event</button>
+            </div>
+
+
+            <div className="display">
             </div>
 
         </div>
