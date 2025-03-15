@@ -64,18 +64,18 @@ Version control
 
 🚀 Installation & Setup
 
-1. Clone the Repository:
+1. Clone the Repository
 
-        git clone https://github.com/Gathiaka-wiz/event-management-system.git
+       https://github.com/Gathiaka-wiz/EMS
        cd event-management-system
 
 
-2. Install Dependencies:
+3. Install Dependencies:
  
        npm install
 
 
-3. Run Development Server:
+4. Run Development Server:
 
        npm start
 
