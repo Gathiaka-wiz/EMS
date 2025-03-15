@@ -23,82 +23,78 @@ Hosting
 
 Version control
 
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
  
 
 🎯 Features
 
-📅 Create, update, and delete events
+`📅 Create, update, and delete events`
 
-🔍 Search and filter events by date, category, or location
+`🔍 Search and filter events by date, category, or location`
 
-🎨 Dynamic UI with SCSS animations
+`🎨 Dynamic UI with SCSS animations`
 
-🕒 Real-time event updates (if applicable)
+`🕒 Real-time event updates (if applicable)`
 
-📱 Fully responsive design
+`📱 Fully responsive design`
 
 
 📂 Project Structure
 
-📦 event-management-system
+   📦 event-management-system
 
- ┣ 📂 src
+  ┣ 📂 src
  
- ┃ ┣ 📂 components
+  ┃ ┣ 📂 components
  
- ┃ ┣ 📂 pages
+  ┃ ┣ 📂 pages
  
- ┃ ┣ 📂 styles (SCSS files)
+  ┃ ┣ 📂 styles (SCSS files)
  
- ┃ ┗ 📜 main.js (Vanilla JS scripts)
+  ┃ ┗ 📜 main.js (Vanilla JS scripts)
  
- ┣ 📜 index.html
+  ┣ 📜 index.html
  
- ┣ 📜 package.json
+  ┣ 📜 package.json
  
- ┣ 📜 README.md
+  ┣ 📜 README.md
  
- ┗ 📜 .gitignore
+  ┗ 📜 .gitignore
  
 
 🚀 Installation & Setup
 
 1. Clone the Repository:
 
-git clone https://github.com/Gathiaka-wiz/event-management-system.git
-cd event-management-system
+        git clone https://github.com/Gathiaka-wiz/event-management-system.git
+       cd event-management-system
 
 
 2. Install Dependencies:
-
-npm install
+ 
+       npm install
 
 
 3. Run Development Server:
 
-npm start
+       npm start
 
 
 
 📸 Screenshots
 
-(Add screenshots or GIFs showcasing the UI and features)
+<!--(Add screenshots or GIFs showcasing the UI and features)-->
 
 🛠️ Deployment
 
 1. Build the Project:
 
-npm run build
+       npm run build
 
 
 2. Deploy to Vercel:
 
-vercel deploy
-
-
-3. Deploy to Netlify:
-
-netlify deploy
+vercel 
 
 
 
